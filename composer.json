@@ -1,0 +1,26 @@
+{
+    "name": "yaoyongfeng/yii2-webuploader",
+    "description": "Yii2 extension widget of web uploader",
+    "type": "yii2-extension",
+    "require": {
+        "yiisoft/yii2": ">=2.0.6",
+        "php": ">=5.5.0"
+    },
+    "license": "GPL2.0",
+    "authors": [
+        {
+            "name": "ai凉快",
+            "email": "ailiangkuai@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {"ailiangkuai\\yii2\\widgets\\webuploader\\": "src/"}
+    }
+}
