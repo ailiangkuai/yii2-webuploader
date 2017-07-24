@@ -1,5 +1,5 @@
 {
-    "name": "yaoyongfeng/yii2-webuploader",
+    "name": "ailiangkuai/yii2-webuploader",
     "description": "Yii2 extension widget of web uploader",
     "type": "yii2-extension",
     "require": {
