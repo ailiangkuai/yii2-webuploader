@@ -1,12 +1,12 @@
 <?php
-namespace ailiangkuai\yii2\webuploader\components;
+namespace ailiangkuai\yii2\widgets\webuploader\components;
 
 use Yii;
 use Intervention\Image\ImageManager;
 
 /**
  * Class Image
- * @package ailiangkuai\yii2\webuploader\components
+ * @package ailiangkuai\yii2\widgets\webuploader\components
  * @author yaoyongfeng
  */
 class Image extends BaseImage
@@ -14,7 +14,6 @@ class Image extends BaseImage
     /**
      * @var \Intervention\Image\Image
      *
-     * @author Choate <choate.yao@gmail.com>
      */
     private $_imageManager;
 
@@ -34,8 +33,7 @@ class Image extends BaseImage
     }
     
     /**
-     * @author Hollis_Ho
-     * @see \xsteach\uploader\components\BaseImage::saveImg()
+     * @see BaseImage::saveImg()
      */
     public function saveImg() {
         if($this->getCrop()){
@@ -79,8 +77,7 @@ class Image extends BaseImage
     }
     
     /**
-     * @author Hollis_Ho
-     * @see \xsteach\uploader\components\BaseImage::setImgUrl()
+     * @see BaseImage::setImgUrl()
      */
     public function setImgUrl($img_url) {
         parent::setImgUrl($img_url);
@@ -89,7 +86,6 @@ class Image extends BaseImage
 
     /**
      * ImageManager
-     * @author Choate <choate.yao@gmail.com>
      * @return \Intervention\Image\Image
      */
     public function getImageManager() {
@@ -99,7 +95,6 @@ class Image extends BaseImage
     /**
      * 是否缩放宽度
      * @since 1.0
-     * @author Choate <choate.yao@gmail.com>
      * @return bool
      */
     protected function isScalingByWidth() {
@@ -112,7 +107,6 @@ class Image extends BaseImage
      * 是否缩放高度
      *
      * @since 1.0
-     * @author Choate <choate.yao@gmail.com>
      * @return bool
      */
     protected function isScalingByHeight() {

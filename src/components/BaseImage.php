@@ -1,12 +1,12 @@
 <?php
-namespace ailiangkuai\yii2\webuploader\components;
+namespace ailiangkuai\yii2\widgets\webuploader\components;
 
 use yii\base\Object;
 
 
 /**
  * Class BaseImage
- * @package ailiangkuai\yii2\webuploader\components
+ * @package ailiangkuai\yii2\widgets\webuploader\components
  * @author yaoyongfeng
  */
 abstract class BaseImage extends Object

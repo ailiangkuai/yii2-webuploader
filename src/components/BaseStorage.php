@@ -1,5 +1,5 @@
 <?php
-namespace ailiangkuai\yii2\webuploader\components;
+namespace ailiangkuai\yii2\widgets\webuploader\components;
 
 use yii\base\Object;
 use yii\helpers\ArrayHelper;
@@ -8,7 +8,7 @@ use yii\web\UploadedFile;
 
 /**
  * Class BaseStorage
- * @package ailiangkuai\yii2\webuploader\components
+ * @package ailiangkuai\yii2\widgets\webuploader\components
  * @author yaoyongfeng
  */
 abstract class BaseStorage extends Object

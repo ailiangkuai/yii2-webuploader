@@ -1,5 +1,5 @@
 <?php
-namespace ailiangkuai\yii2\webuploader;
+namespace ailiangkuai\yii2\widgets\webuploader;
 
 use yii\base\Object;
 use yii\helpers\Html;
@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 /**
  * Class BaseColumn
- * @package ailiangkuai\yii2\webuploader
+ * @package ailiangkuai\yii2\widgets\webuploader
  * @author yaoyongfeng
  */
 abstract class BaseColumn extends Object

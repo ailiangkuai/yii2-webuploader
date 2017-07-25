@@ -1,5 +1,5 @@
 <?php
-namespace ailiangkuai\yii2\webuploader;
+namespace ailiangkuai\yii2\widgets\webuploader;
 
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
@@ -12,12 +12,12 @@ use yii\helpers\Json;
  */
 class AttachmentUploader extends BaseUploader
 {
-    public $columnClass = '\ailiangkuai\yii2\webuploader\AttachmentColumn';
+    public $columnClass = '\ailiangkuai\yii2\widgets\webuploader\AttachmentColumn';
 
     function registerAssert(array $options) {
         $options['contentOptions'] = ArrayHelper::remove($options['options'], 'contentOptions', []);
         AttachmentUploaderAsset::register($this->getView());
-        $this->getView()->registerJs("$('#{$this->options['id']}').xstAttachmentUploader(" . Json::encode($options) . ")");
+        $this->getView()->registerJs("$('#{$this->options['id']}').AttachmentUploader(" . Json::encode($options) . ")");
     }
 
     public function initColumns(array $options) {

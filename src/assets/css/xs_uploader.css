@@ -1,0 +1,90 @@
+
+.uploader {
+  color: #777;
+  line-height: 16px;
+}
+.uploader .webuploader-pick, .uploader .uploader-upload, .uploader .uploader-reupload {
+  display: inline-block;
+  *display: inline;
+  background: url(../images/icon-uploader.png) no-repeat;
+  padding-left: 24px;
+}
+.uploader .webuploader-container {
+  display: inline-block;
+  *display: inline;
+  font-size: 14px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.uploader .webuploader-pick {
+  background-color: none;
+  color: #009aff;
+  padding: 0 0 0 24px;
+  margin-right: 16px;
+}
+.uploader .uploader-upload {
+  background-color: none;
+  background-position: 0 -16px;
+  border: none;
+  color: #76b600;
+  vertical-align: top;
+  line-height: 16px;
+  height: 16px;
+  outline: none;
+}
+.uploader .uploader-tips {
+  font-size: 12px;
+}
+.uploader .uploader-items li {
+  font-size: 13px;
+  margin-top: 10px;
+}
+.uploader .uploader-items li:first-child {
+  margin-top: 18px;
+}
+.uploader .uploader-items img {
+  margin-right: 4px;
+}
+.uploader .uploader-help, .uploader .uploader-button {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+}
+.uploader .uploader-loading {
+  color: #009aff;
+  margin-left: 34px;
+}
+.uploader .uploader-delete {
+  display: inline-block;
+  color: #d9534f;
+  margin: 0 26px 0 30px;
+}
+.uploader .uploader-remove, .uploader .uploader-cancel {
+  color: #d9534f;
+  margin-left: 30px;
+}
+.uploader .uploader-reupload {
+  background-position: 0 -48px;
+}
+.uploader .uploader-disabled {
+  background-position: 0 -64px;
+  color: #ccc;
+}
+.uploader .uploader-success, .uploader .uploader-error {
+  display: inline;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 10px;
+  text-align: center;
+  padding: 2px 10px 3px;
+  margin: 0 30px 0 2px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.uploader .uploader-success {
+  background-color: #78b421;
+}
+.uploader .uploader-error {
+  background-color: #d9534f;
+}
+

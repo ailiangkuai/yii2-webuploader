@@ -1,5 +1,5 @@
 <?php
-namespace ailiangkuai\yii2\webuploader\components;
+namespace ailiangkuai\yii2\widgets\webuploader\components;
 
 use yii\base\Object;
 use yii\helpers\FileHelper;
@@ -8,7 +8,7 @@ use yii\web\UploadedFile;
 
 /**
  * Class FileManager
- * @package ailiangkuai\yii2\webuploader\components
+ * @package ailiangkuai\yii2\widgets\webuploader\components
  * @author yaoyongfeng
  */
 class FileManager extends Object
@@ -133,7 +133,6 @@ class FileManager extends Object
     /**
      * @param $typeId
      *
-     * @deprecated
      * @since 1.0
      * @return string
      */

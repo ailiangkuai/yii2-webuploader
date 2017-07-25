@@ -1,8 +1,5 @@
-/**
- * Created by Choate on 15/7/10.
- */
 $(function () {
-    $.fn.xstAttachmentUploader = function (method) {
+    $.fn.AttachmentUploader = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
@@ -25,7 +22,7 @@ $(function () {
         clientOptions: {},
         events       : {}
     };
-    var dataName = 'xstAttachmentUploader';
+    var dataName = 'AttachmentUploader';
     var methods = {
         init: function (options) {
             var settings = $.extend({}, defaults, options);

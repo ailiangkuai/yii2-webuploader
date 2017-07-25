@@ -1,13 +1,15 @@
 <?php
-namespace ailiangkuai\yii2\webuploader;
+namespace ailiangkuai\yii2\widgets\webuploader;
 
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use ailiangkuai\yii2\widgets\webuploader\components\FileManager;
+use ailiangkuai\yii2\widgets\webuploader\components\BaseImage;
 
 
 /**
  * Class ImageColumn
- * @package ailiangkuai\yii2\webuploader
+ * @package ailiangkuai\yii2\widgets\webuploader
  * @author yaoyongfeng
  */
 class ImageColumn extends BaseColumn
@@ -22,9 +24,9 @@ class ImageColumn extends BaseColumn
     }
 
     protected function getImageUrl() {
-        /* @var \ailiangkuai\yii2\webuploader\components\FileManager $uploader */
+        /* @var FileManager $uploader */
         $uploader = \Yii::$app->uploader;
-        /* @var \ailiangkuai\yii2\webuploader\components\BaseImage $imageManager */
+        /* @var BaseImage $imageManager */
         $imageManager = \Yii::$app->imageManager;
         $file         = $uploader->getStorage()->getFile($this->value);
         if ($file) {

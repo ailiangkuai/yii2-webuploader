@@ -1,8 +1,5 @@
-/**
- * Created by Choate on 15/7/10.
- */
 $(function () {
-    $.fn.xstImageUploader = function (method) {
+    $.fn.ImageUploader = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
@@ -25,7 +22,7 @@ $(function () {
         clientOptions: {},
         events       : {}
     };
-    var dataName = 'xstImageUploader';
+    var dataName = 'ImageUploader';
     var methods = {
         init: function (options) {
             var settings = $.extend({}, defaults, options);
@@ -47,9 +44,8 @@ $(function () {
                     uploader.reset();
                     findInput(settings.id).empty();
                 }
-                //2015-09-21 添加判断图片队列是否超过上限
+                //添加判断图片队列是否超过上限
                 if(findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length >= settings.clientOptions.fileNumLimit){
-            		//alert(findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length);
                 	alert('上传图片超过上限：'+findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length);
             		return false;
             	}

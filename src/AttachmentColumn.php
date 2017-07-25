@@ -1,5 +1,5 @@
 <?php
-namespace ailiangkuai\yii2\webuploader;
+namespace ailiangkuai\yii2\widgets\webuploader;
 
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -8,7 +8,7 @@ use yii\helpers\Json;
 
 /**
  * Class AttachmentColumn
- * @package ailiangkuai\yii2\webuploader
+ * @package ailiangkuai\yii2\widgets\webuploader
  * @author yaoyongfeng
  */
 class AttachmentColumn extends BaseColumn

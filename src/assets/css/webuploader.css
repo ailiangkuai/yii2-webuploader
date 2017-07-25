@@ -1,0 +1,73 @@
+.webuploader-container {
+	position: relative;
+}
+.webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	background: #00b7ee;
+	padding: 10px 15px;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	overflow: hidden;
+}
+.webuploader-pick-hover {
+	background: #00a2d4;
+}
+
+.webuploader-pick-disable {
+	opacity: 0.6;
+	pointer-events:none;
+}
+.uploading-progress-bar{
+	height: 45px;
+	border-bottom: 1px solid #dadada;
+	margin: 0 10px;
+	padding: 0;
+	line-height: 45px;
+	vertical-align: middle;
+	position: relative;
+}
+.uploading-progress{
+	border: 1px solid #1483d8;
+	width: 198px;
+	background: #fff;
+	height: 18px;
+	position: absolute;
+	top: 12px;
+	text-align: center;
+	line-height: 18px;
+	color: #6dbfff;
+	margin: 0 10px 0 0;
+}
+.uploading-progress .text{
+	position: relative;
+	z-index: 10;
+	text-align: center;
+	line-height: 18px;
+	color: #6dbfff;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 100%;
+}
+.uploading-progress .percentage{
+	height: 100%;
+	left: 0;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 100%;
+	background: #1483d8;
+	position: absolute;
+	text-align: center;
+	line-height: 18px;
+	color: #6dbfff;
+}

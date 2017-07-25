@@ -1,12 +1,12 @@
 <?php
-namespace ailiangkuai\yii2\webuploader;
+namespace ailiangkuai\yii2\widgets\webuploader;
 
 use yii\web\AssetBundle;
 use Yii;
 
 /**
  * Class AttachmentUploaderAsset
- * @package ailiangkuai\yii2\webuploader
+ * @package ailiangkuai\yii2\widgets\webuploader
  * @author yaoyongfeng
  */
 class AttachmentUploaderAsset extends AssetBundle

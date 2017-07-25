@@ -1,5 +1,5 @@
 <?php
-namespace ailiangkuai\yii2\webuploader\components;
+namespace ailiangkuai\yii2\widgets\webuploader\components;
 
 use Yii;
 

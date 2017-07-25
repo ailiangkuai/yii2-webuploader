@@ -1,5 +1,5 @@
 <?php
-namespace ailiangkuai\yii2\webuploader\components;
+namespace ailiangkuai\yii2\widgets\webuploader\components;
 
 use yii\helpers\ArrayHelper;
 use Yii;
@@ -9,7 +9,7 @@ use yii\helpers\FileHelper;
 
 /**
  * Class File
- * @package ailiangkuai\yii2\webuploader\components
+ * @package ailiangkuai\yii2\widgets\webuploader\components
  * @author yaoyongfeng
  */
 class File extends Object
