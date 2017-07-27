@@ -37,6 +37,7 @@ class ImageColumn extends BaseColumn
 
             return $imageManager->save();
         }
+        
         //兼容数据库错误的fileId
         return (substr($this->value, 0, 7) == 'http://' || substr($this->value, 0, 8) == 'https://') ? $this->value : $uploader->getFileUrl($this->value);
     }
