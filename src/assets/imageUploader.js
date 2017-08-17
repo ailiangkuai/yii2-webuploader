@@ -10,17 +10,17 @@ $(function () {
         }
     };
     var defaults = {
-        id           : null,
-        name         : null,
-        input        : null,
-        imgOptions   : {},
-        options      : {},
+        id: null,
+        name: null,
+        input: null,
+        imgOptions: {},
+        options: {},
         uploadOptions: {},
         removeOptions: {},
         cancelOptions: {},
-        helpOptions  : {},
+        helpOptions: {},
         clientOptions: {},
-        events       : {}
+        events: {}
     };
     var dataName = 'ImageUploader';
     var methods = {
@@ -28,7 +28,7 @@ $(function () {
             var settings = $.extend({}, defaults, options);
             var uploader = WebUploader.create(settings.clientOptions);
             uploader.option('compress', null);
-            findInput(settings.id).data(dataName, {'uploader' : uploader});
+            findInput(settings.id).data(dataName, {'uploader': uploader});
             findInput(settings.uploadOptions.id).click(function () {
                 uploader.upload();
                 return false;
@@ -36,19 +36,29 @@ $(function () {
             $.each(settings.events, function (eventName, call) {
                 uploader.on(eventName, call);
             });
+            uploader.off('error');
             uploader.off('beforeFileQueued');
             uploader.off('uploadSuccess');
             uploader.off('uploadAccept');
+            uploader.on('error', function (type, max, file) {
+                if (type == "Q_TYPE_DENIED") {
+                    alert("请上传图片格式文件");
+                } else if (type == "Q_EXCEED_SIZE_LIMIT" || type == "F_EXCEED_SIZE") {
+                    alert("文件大小不能超过" + (max / 1024 / 1024).toFixed(2) + "M");
+                } else {
+                    alert("上传出错！请检查后重新上传！错误代码" + type);
+                }
+            });
             uploader.on('beforeFileQueued', function (file) {
                 if (settings.clientOptions.fileNumLimit == 1 && findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length > 0) {
                     uploader.reset();
                     findInput(settings.id).empty();
                 }
                 //添加判断图片队列是否超过上限
-                if(findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length >= settings.clientOptions.fileNumLimit){
-                	alert('上传图片超过上限：'+findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length);
-            		return false;
-            	}
+                if (findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length >= settings.clientOptions.fileNumLimit) {
+                    alert('上传图片超过上限：' + findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length);
+                    return false;
+                }
                 return true;
             });
             uploader.on('fileQueued', function (file) {
@@ -83,7 +93,7 @@ $(function () {
                     $img.attr('src', src);
                 }, getValue($imgOptions, 'width', 110), getValue($imgOptions, 'height', 110));
             });
-            uploader.on('uploadProgress', function(file, percentage) {
+            uploader.on('uploadProgress', function (file, percentage) {
                 var _percentage = Math.round(percentage * 100);
                 findInput(file.id).find('.' + settings.helpOptions.class).addClass('progress').html(_percentage + '%');
             });
@@ -95,7 +105,7 @@ $(function () {
                 findInput(file.id).find('.' + settings.helpOptions.class).addClass('progress').html('上传失败');
             });
             uploader.on('uploadSuccess', function (file, response) {
-                findInput(file.id).append('<input type="hidden" name="'+settings.name+'" value="'+response.fileId+'" />');
+                findInput(file.id).append('<input type="hidden" name="' + settings.name + '" value="' + response.fileId + '" />');
                 var $removeOptions = $.extend({}, settings.removeOptions);
                 var $remove = $('<' + removeValue($removeOptions, 'tag', 'a') + '>');
                 $remove.html(removeValue($removeOptions, 'label'));
@@ -105,12 +115,12 @@ $(function () {
                 $remove.attr('href', 'javascript:;');
                 findInput(settings.input).val('1');
                 findInput(file.id).find('.' + settings.helpOptions.class).show().addClass('success').html('上传成功');
-                findInput(file.id).find('.'+settings.helpOptions.class).fadeOut(2000, function() {
+                findInput(file.id).find('.' + settings.helpOptions.class).fadeOut(2000, function () {
                     findInput(file.id).find('.' + settings.helpOptions.class).removeClass('success').html('');
                 });
                 findInput(file.id).find('.' + settings.cancelOptions.class).replaceWith($remove);
             });
-            findInput(settings.id).on('click', '.'+settings.cancelOptions.class + ',.' + settings.removeOptions.class,function() {
+            findInput(settings.id).on('click', '.' + settings.cancelOptions.class + ',.' + settings.removeOptions.class, function () {
                 var $parent = $(this).parent();
                 if ($parent.attr('id')) {
                     uploader.removeFile($parent.attr('id'));
