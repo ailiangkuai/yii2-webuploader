@@ -18,6 +18,7 @@ class File extends Object
     protected $_name;
     protected $_mime;
     protected $_extension;
+    /* @var int $_size  bytes*/
     protected $_size;
     protected $_path;
     protected $_pathname;

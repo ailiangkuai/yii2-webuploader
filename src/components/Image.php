@@ -73,7 +73,12 @@ class Image extends BaseImage
 
     public function setFile(File $file) {
         parent::setFile($file);
-        $this->_imageManager = (new ImageManager(['driver' => $this->getDriver()]))->make($this->getFile()->getPathname());
+        if($file instanceof FileFtp){
+            $source = $this->getStorage()->getFtpClient()->readStream($this->getFile()->getPathname());
+        }else{
+            $source = $this->getFile()->getPathname();
+        }
+        $this->_imageManager = (new ImageManager(['driver' => $this->getDriver()]))->make($source);
     }
     
     /**

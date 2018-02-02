@@ -53,7 +53,7 @@ class FileManager extends Object
 
     /**
      * @since 1.0
-     * @return BaseStorage
+     * @return BaseStorage|Uploader|UploaderFtp
      */
     public function getStorage() {
         return $this->_storage;
