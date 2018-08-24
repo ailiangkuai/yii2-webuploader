@@ -106,6 +106,7 @@ $(function () {
             });
             uploader.on('uploadSuccess', function (file, response) {
                 findInput(file.id).append('<input type="hidden" name="' + settings.name + '" value="' + response.fileId + '" />');
+                findInput(file.id).find("img").wrap('<a href="' + response.url + '" class="_webuploadZoom" target="_blank"></a>')
                 var $removeOptions = $.extend({}, settings.removeOptions);
                 var $remove = $('<' + removeValue($removeOptions, 'tag', 'a') + '>');
                 $remove.html(removeValue($removeOptions, 'label'));
