@@ -44,9 +44,6 @@ class ImageBase64UploaderAction extends Action
         );
         $fileId = null;
         $status = 'SUCCESS';
-        if(Yii::$app->user->isGuest){
-            throw new UnauthorizedHttpException('请登录');
-        }
         $size = 0;
         if(isset($_POST[$this->imageFieldName])){
             $imageContent = base64_decode($_POST[$this->imageFieldName]);
@@ -76,8 +73,8 @@ class ImageBase64UploaderAction extends Action
         $result = [
             'status' => $status,
             'fileId' => $fileId,
-            'ext'    => $uploader->getFileType(substr($fileId, -3)),
-            'url'    => $uploader->getFileUrl($fileId, true)
+            'ext'    => $status == 'SUCCESS' ? $uploader->getFileType(substr($fileId, -3)) : '',
+            'url'    => $status == 'SUCCESS' ? $uploader->getFileUrl($fileId, true) : ''
         ];
 
         if($this->isJson){
