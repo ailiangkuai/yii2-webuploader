@@ -40,7 +40,6 @@ abstract class BaseUploader extends InputWidget
 
     protected function initValues() {
         $this->value                        = ($this->hasModel() ? $this->model->getAttribute($this->attribute) : $this->value) ?: [];
-        $this->value                        = is_array($this->value) ? $this->value : [$this->value];
         $options                            = $this->itemOptions;
         $removeOptions                      = ArrayHelper::remove($options, 'removeOptions', []);
         $cancelOptions                      = ArrayHelper::remove($options, 'cancelOptions', []);
@@ -107,6 +106,6 @@ abstract class BaseUploader extends InputWidget
     }
 
     public function renderInput() {
-        return $this->hasModel() ? Html::activeHiddenInput($this->model, $this->attribute, ['value' => (bool)$this->model->{$this->attribute}]) : Html::hiddenInput($this->name, (bool)$this->value);
+        return $this->hasModel() ? Html::activeHiddenInput($this->model, $this->attribute, ['value' => $this->model->{$this->attribute}]) : Html::hiddenInput($this->name, $this->value);
     }
 }

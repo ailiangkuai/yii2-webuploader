@@ -28,13 +28,14 @@ class Uploader extends BaseStorage
         return $this->buildFilePath($fileHash) . $fileHash . ($ext ? ".{$ext}" : '');
     }
 
-    public function getFileUrl($fileHash) {
+    public function getFileUrl($fileHash, $scheme = true)
+    {
         if (!$fileHash || strlen($fileHash) != 35) {
-            return null;
+            return ($scheme ? $this->getBaseUrl() : '') . $fileHash;
         }
         $ext = $this->getFileExt(substr($fileHash, -3));
 
-        return $this->getBaseUrl() . $this->buildFileUrl($fileHash) . $fileHash . ($ext ? ".{$ext}" : '');
+        return ($scheme ? $this->getBaseUrl() : '') . $this->buildFileUrl($fileHash) . $fileHash . ($ext ? ".{$ext}" : '');
     }
 
     /**

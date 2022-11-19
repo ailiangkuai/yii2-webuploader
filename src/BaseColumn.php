@@ -25,7 +25,7 @@ abstract class BaseColumn extends Object
 
     protected function createHidden() {
         return $this->uploader->hasModel() ?
-            Html::activeHiddenInput($this->uploader->model, $this->uploader->attribute, ['value' => $this->value, 'name' => Html::getInputName($this->uploader->model, $this->uploader->attribute) . '[]'])
-            : Html::hiddenInput($this->uploader->name . '[]', $this->value);
+            Html::activeHiddenInput($this->uploader->model, $this->uploader->attribute, ['value' => $this->value, 'name' => Html::getInputName($this->uploader->model, $this->uploader->attribute)])
+            : Html::hiddenInput($this->uploader->name , $this->value);
     }
 }

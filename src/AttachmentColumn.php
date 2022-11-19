@@ -22,7 +22,7 @@ class AttachmentColumn extends BaseColumn
         $ext        = ArrayHelper::getValue($this->value, 'ext', 'file');
         $contentTag = ArrayHelper::remove($this->contentOptions, 'tag', 'span');
         //$content    = $this->createHidden() . Html::img($this->getIcon($ext), ['title' => $name]) . Html::tag($contentTag, $name . ($size ? '(' . $this->converterSize($size) . ')' : ''), $this->contentOptions) . Html::tag('div', '', $this->helpOptions) . Html::a(ArrayHelper::remove($this->removeOptions, 'label', '删除'), 'javascript:;', $this->removeOptions);
-        $content    = $this->createHidden() . Html::img($this->getNewIcon($ext), ['title' => $name]) . Html::tag($contentTag, $name . ($size ? '(' . $this->converterSize($size) . ')' : ''), $this->contentOptions) . Html::tag('div', '', $this->helpOptions) . Html::a(ArrayHelper::remove($this->removeOptions, 'label', '删除'), 'javascript:;', $this->removeOptions);
+        $content    = Html::img($this->getNewIcon($ext), array_merge(['title' => $name],['data-file'=>$this->value])) . Html::tag($contentTag, $name . ($size ? '(' . $this->converterSize($size) . ')' : ''), $this->contentOptions) . Html::tag('div', '', $this->helpOptions) . Html::a(ArrayHelper::remove($this->removeOptions, 'label', '删除'), 'javascript:;', $this->removeOptions);
 
         return Html::tag($tag, $content, $this->options);
     }
@@ -88,7 +88,7 @@ class AttachmentColumn extends BaseColumn
 
         return $url . ArrayHelper::getValue($items, $ext, 'default.png');
     }
-	
+
 	    protected function getNewIcon($ext) {
         $items = [
             "file" => "default.png",

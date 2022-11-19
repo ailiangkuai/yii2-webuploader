@@ -25,6 +25,9 @@ class ImageUploader extends BaseUploader
         $imgOptions['width']                = ArrayHelper::getValue($imgOptions, 'width', 110);
         $imgOptions['height']               = ArrayHelper::getValue($imgOptions, 'height', 110);
         $this->itemOptions['imgOptions']    = $imgOptions;
+        if(ArrayHelper::getValue($this->clientOptions,'fileNumLimit',0)>1&&!empty($this->value)){
+            $this->value = Json::decode($this->value);
+        }
         foreach ($this->value as $index => $value) {
             $column              = \Yii::createObject([
                     'class' => $this->columnClass, 'imgOptions' => $imgOptions, 'removeOptions' => $this->itemOptions['removeOptions'], 'options' => $options, 'helpOptions' => $this->itemOptions['helpOptions'], 'uploader' => $this,

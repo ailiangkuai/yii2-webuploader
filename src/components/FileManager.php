@@ -123,7 +123,7 @@ class FileManager extends Object
     }
 
     public function getFileUrl($hashFile, $scheme = false) {
-        return $this->getStorage()->getFileUrl($hashFile);
+        return $this->getStorage()->getFileUrl($hashFile,$scheme);
     }
 
     public function getFilePath($hasFile) {

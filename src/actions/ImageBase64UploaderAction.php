@@ -21,7 +21,7 @@ class ImageBase64UploaderAction extends Action
     public $imageMaxSize = 10240000; /* 上传大小限制，单位B */
     public $imageFieldName = 'upimg'; /* 提交的图片表单名称 */
     public $callback;
-    public $isJson = true;
+    public $isJson = false;
     public function __construct($id, $controller, $config = []) {
         parent::__construct($id, $controller, $config);
         $this->controller->enableCsrfValidation = $this->enableCsrfValidation;

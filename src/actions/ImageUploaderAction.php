@@ -59,7 +59,8 @@ class ImageUploaderAction extends Action
             'status' => $status,
             'fileId' => $fileId,
             'ext'    => $status == 'SUCCESS' ? $uploader->getFileType(substr($fileId, -3)) : '',
-            'url'    => $status == 'SUCCESS' ? $uploader->getFileUrl($fileId, true) : ''
+            'url'    => $status == 'SUCCESS' ? $uploader->getFileUrl($fileId, true) : '',
+            'filePath' =>$status == 'SUCCESS' ? $uploader->getFileUrl($fileId, false) : '',
         ];
         if ($this->callback) {
             return call_user_func($this->callback, $result);

@@ -25,6 +25,9 @@ class AttachmentUploader extends BaseUploader
         $contentOptions['class']             = ArrayHelper::getValue($contentOptions, 'class', 'uploader-name');
         $this->itemOptions['contentOptions'] = $contentOptions;
         $values                              = [];
+        if(ArrayHelper::getValue($this->clientOptions,'fileNumLimit',0)>1&&!empty($this->value)){
+            $this->value = Json::decode($this->value);
+        }
         if (ArrayHelper::isIndexed($this->value)) {
             foreach ($this->value as $value) {
                 $values[] = $this->createColumn($value, $options);

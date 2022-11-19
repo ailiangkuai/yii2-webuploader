@@ -105,8 +105,8 @@ $(function () {
                 findInput(file.id).find('.' + settings.helpOptions.class).addClass('progress').html('上传失败');
             });
             uploader.on('uploadSuccess', function (file, response) {
-                findInput(file.id).append('<input type="hidden" name="' + settings.name + '" value="' + response.fileId + '" />');
                 findInput(file.id).find("img").wrap('<a href="' + response.url + '" class="_webuploadZoom" target="_blank"></a>')
+                    .data("url",response.filePath);
                 var $removeOptions = $.extend({}, settings.removeOptions);
                 var $remove = $('<' + removeValue($removeOptions, 'tag', 'a') + '>');
                 $remove.html(removeValue($removeOptions, 'label'));
@@ -114,12 +114,18 @@ $(function () {
                     $remove.attr(attr, value);
                 });
                 $remove.attr('href', 'javascript:;');
-                findInput(settings.input).val('1');
                 findInput(file.id).find('.' + settings.helpOptions.class).show().addClass('success').html('上传成功');
                 findInput(file.id).find('.' + settings.helpOptions.class).fadeOut(2000, function () {
                     findInput(file.id).find('.' + settings.helpOptions.class).removeClass('success').html('');
                 });
                 findInput(file.id).find('.' + settings.cancelOptions.class).replaceWith($remove);
+                var val = [];
+                $("#uploader-" + settings.input + "-items")
+                    .find("img")
+                    .each(function (i) {
+                        val.push($(this).data("url"));
+                    });
+                findInput(settings.input).val(JSON.stringify(val));
             });
             findInput(settings.id).on('click', '.' + settings.cancelOptions.class + ',.' + settings.removeOptions.class, function () {
                 var $parent = $(this).parent();
@@ -130,6 +136,13 @@ $(function () {
                 if (findInput(settings.id).find(getValue(settings.options, 'tag', 'li')).length <= 0) {
                     findInput(settings.input).val('');
                 }
+                var val = [];
+                $("#uploader-" + settings.input + "-items")
+                    .find("img")
+                    .each(function (i) {
+                        val.push($(this).data("url"));
+                    });
+                findInput(settings.input).val(JSON.stringify(val));
             });
         }
     };
